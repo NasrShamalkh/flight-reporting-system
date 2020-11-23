@@ -37,7 +37,11 @@ const DetailedView = function(props) {
             <td>{record.customer.gender}</td>
             <td>{record.customer.address}</td>
             <td>{record.customer.paymentInfo.cardNumber}</td>
-            <td>{record.customer.paymentInfo.endDate}</td>
+            <td>
+              {new Date(record.customer.paymentInfo.endDate).getFullYear() +
+                '/' +
+                new Date(record.customer.paymentInfo.endDate).getMonth()}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -120,7 +124,11 @@ const DetailedView = function(props) {
         <tbody>
           <tr>
             <td>{record.extraBaggage} Kg</td>
-            <td>{record.date}</td>
+            <td>{new Date(record.date).getFullYear() +
+                      '-' +
+                      new Date(record.date).getMonth() +
+                      '-' +
+                      new Date(record.date).getDate()}</td>
             <td>{record.time}</td>
             <td>${record.totalPayment}</td>
           </tr>

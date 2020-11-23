@@ -6,9 +6,9 @@ const CustomerSchema = new mongoose.Schema({
   email: { type: String, required: true },
   gender: { type: String, required: true },
   address: { type: String },
-  pymentInfo: {
+  paymentInfo: {
     cardNumber: Number,
-    endDate: String
+    endDate: Date
   }
 });
 

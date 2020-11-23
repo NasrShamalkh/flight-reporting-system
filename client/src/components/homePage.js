@@ -92,7 +92,13 @@ const ReportingSystem = function(props) {
                   {/* <td>{element.extraBaggage} Kg</td> */}
                   <td>${element.totalPayment}</td>
                   <td>{element.time}</td>
-                  <td>{element.date}</td>
+                  <td>
+                    {new Date(element.date).getFullYear() +
+                      '-' +
+                      new Date(element.date).getMonth() +
+                      '-' +
+                      new Date(element.date).getDate()}
+                  </td>
                   <td>
                     <NavLink
                       onClick={() => {

@@ -114,7 +114,7 @@ router.get('/get_records/:date', async (req, res) => {
 
 //add a new customer
 router.post('/add_customer', (req, res) => {
-  const { firstName, lastName, email, gender, address, pymentInfo } = req.body;
+  const { firstName, lastName, email, gender, address, paymentInfo } = req.body;
 
   const newCustomer = new CustomerModel({
     firstName,
@@ -122,7 +122,7 @@ router.post('/add_customer', (req, res) => {
     email,
     gender,
     address,
-    pymentInfo
+    paymentInfo
   });
   newCustomer
     .save()

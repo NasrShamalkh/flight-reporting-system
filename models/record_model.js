@@ -7,7 +7,7 @@ const RecordSchema = new mongoose.Schema({
   from: { type: String, required: true },
   to: { type: String, required: true },
   extraBaggage: { type: Number, required: true },
-  date: { type: String, required: true },
+  date: { type: Date, required: true },
   time: { type: String, required: true },
   totalPayment: { type: Number, required: true }
 });
