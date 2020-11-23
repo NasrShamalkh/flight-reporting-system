@@ -1,18 +1,18 @@
 import React from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setIndex, setData } from '../redux';
 
-const ReportingSystem = function() {
+const ReportingSystem = function(props) {
   const [date, setDate] = React.useState('');
-  const [full_report_data, setFull_report_date] = React.useState([]);
-  const [count, setCount] = React.useState(0);
 
   const get_records = function() {
     axios
       .get(`http://localhost:5600/get_records/${date}`)
       .then(result => {
         console.log('Date recived ', result.data);
-        setCount(count + 1);
-        setFull_report_date(result.data);
+        props.setData(result.data);
       })
       .catch(err => {
         console.log('Error in getting data', err);
@@ -49,7 +49,7 @@ const ReportingSystem = function() {
             <th colSpan='2'>CUSTOMER</th>
             <th>GUESTS</th>
             <th colSpan='5'>FLIGHT</th>
-            <th colSpan='3'>INFO</th>
+            <th colSpan='4'>INFO</th>
           </tr>
         </thead>
         <thead>
@@ -66,15 +66,16 @@ const ReportingSystem = function() {
             <th>To</th>
             <th>Pilot</th>
             <th>Type</th>
-            <th>ExtraBagging</th>
+            {/* <th>ExtraBagging</th> */}
             <th>Payment total</th>
             <th>Time</th>
             <th>Date</th>
+            <th>details</th>
           </tr>
         </thead>
         <tbody>
-          {full_report_data.length > 0 ? (
-            full_report_data.map((element, index) => {
+          {props.report_data.length > 0 ? (
+            props.report_data.map((element, index) => {
               return (
                 <tr key={index}>
                   <td>
@@ -88,16 +89,26 @@ const ReportingSystem = function() {
                   <td>{element.to}</td>
                   <td>{element.flight.pilot}</td>
                   <td>{element.flight.type}</td>
-                  <td>{element.extraBaggage} Kg</td>
+                  {/* <td>{element.extraBaggage} Kg</td> */}
                   <td>${element.totalPayment}</td>
                   <td>{element.time}</td>
                   <td>{element.date}</td>
+                  <td>
+                    <NavLink
+                      onClick={() => {
+                        props.setIndex(index);
+                      }}
+                      to='/detailed_view'
+                    >
+                      More details
+                    </NavLink>
+                  </td>
                 </tr>
               );
             })
           ) : (
             <tr>
-              <td>`no data ${count}`</td>
+              <td>`no data`</td>
             </tr>
           )}
         </tbody>
@@ -106,4 +117,18 @@ const ReportingSystem = function() {
   );
 };
 
-export default ReportingSystem;
+const mapStateToProps = state => {
+  return {
+    report_data: state.report_data,
+    record_index: state.record_index
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setData: data => dispatch(setData(data)),
+    setIndex: index => dispatch(setIndex(index))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReportingSystem);
