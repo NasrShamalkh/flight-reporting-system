@@ -75,7 +75,7 @@ router.get('/get_records/:date', async (req, res) => {
         await FlightModel.findById(result[i].flight_id)
           .then(async result => {
             console.log(`flight found !,, id: ${result._id}`);
-            record_obj.filght = result;
+            record_obj.flight = result;
           })
           .catch(err => {
             console.log('Error in finding flight', err);
