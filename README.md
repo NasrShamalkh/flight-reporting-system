@@ -21,12 +21,12 @@
 - webpack and babel for compiling and transpiling JSX
 
 
-How to use this app
+### How to use this app ###
 
- git clone https://github.com/NasrShamalkh/flight-reporting-system.git
+ - git clone https://github.com/NasrShamalkh/flight-reporting-system.git
 
- run <code>npm install<code> in the root directory
+ - run <code>npm install<code> in the root directory
   
- run <code>npm install<code> in the client directory
+ - run <code>npm install<code> in the client directory
   
- cd to the root directory and <code>npm start<code> ** this will start both servers **
+ - cd to the root directory and <code>npm start<code> ** this will start both servers **
