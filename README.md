@@ -23,7 +23,10 @@
 
 How to use this app
 
-- git clone https://github.com/NasrShamalkh/flight-reporting-system.git
-- run <code>npm install<code> in the root directory
-- run <code>npm install<code> in the client directory
-- cd to the root directory and <code>npm start<code> ** this will start both servers **
+ git clone https://github.com/NasrShamalkh/flight-reporting-system.git
+
+ run <code>npm install<code> in the root directory
+  
+ run <code>npm install<code> in the client directory
+  
+ cd to the root directory and <code>npm start<code> ** this will start both servers **
