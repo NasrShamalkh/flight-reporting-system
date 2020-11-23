@@ -12,10 +12,14 @@ const ReportingSystem = function(props) {
       .get(`http://localhost:5600/get_records/${date}`)
       .then(result => {
         console.log('Date recived ', result.data);
+        if (result.data.length == 0) {
+          alert('No data on this date');
+        }
         props.setData(result.data);
       })
       .catch(err => {
         console.log('Error in getting data', err);
+        alert('Please Enter a valid Date in this Style  YYYY-MM-DD');
       });
   };
 

@@ -3,6 +3,7 @@ const CustomerModel = require('../models/customer_model');
 const RecordModel = require('../models/record_model');
 const GuestModel = require('../models/guest_model');
 const FlightModel = require('../models/flight_model');
+const validateGetRequset = require('../validator/requset_validator');
 
 router.get('/', (req, res) => {
   res.send('Backend server for reporting app');
@@ -46,6 +47,10 @@ router.post('/add_record', (req, res) => {
 });
 
 router.get('/get_records/:date', async (req, res) => {
+  const { errors, isValid } = validateGetRequset(req.params);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
   let { date } = req.params;
   let full_report_data = [];
   //first we find our record
