@@ -1,5 +1,5 @@
 # flight-reporting-system
-## Technologies
+## Technologies ##
 *Basicaly the MERN stack*
 #### Backend ###
 - Nodejs
@@ -25,8 +25,8 @@
 
  - git clone https://github.com/NasrShamalkh/flight-reporting-system.git
 
- - run <code>npm install<code> in the root directory
+ - run 'npm install' in the root directory
   
- - run <code>npm install<code> in the client directory
+ - run 'npm install' in the client directory
   
- - cd to the root directory and <code>npm start<code> ** this will start both servers **
+ - cd to the root directory and 'npm start' ** this will start both servers **
