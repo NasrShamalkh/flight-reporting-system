@@ -21,7 +21,7 @@
 - webpack and babel for compiling and transpiling JSX
 
 
-##How to use this app
+How to use this app
 
 - git clone https://github.com/NasrShamalkh/flight-reporting-system.git
 
